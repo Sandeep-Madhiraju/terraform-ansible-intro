@@ -31,7 +31,7 @@ resource "google_compute_instance" "panos" {
     zone = "${data.google_compute_zones.available.names[0]}"
     can_ip_forward = true
     allow_stopping_for_update = true
-    metadata {
+    metadata = {
         serial-port-enable = true
         ssh-keys = "admin:${file("${var.gcp_ssh_key}")}"
     }
@@ -45,7 +45,8 @@ resource "google_compute_instance" "panos" {
     }
     network_interface {
         network = "default"
-        access_config = {}
+        access_config {
+        }
     }
 
     boot_disk {
