@@ -23,7 +23,7 @@ output "Hostname"  {
     value = "${google_compute_instance.panos.0.instance_id}"
 }
 
-output "External IP" {
+output "External-IP" {
     value = "${google_compute_instance.panos.0.network_interface.0.access_config.0.nat_ip}"
 }
 
